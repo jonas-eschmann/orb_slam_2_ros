@@ -248,11 +248,20 @@ void Node::LoadOrbParameters (ORB_SLAM2::ORBParameters& parameters) {
 
       parameters.baseline = camera_info->P[3];
 
-      parameters.k1 = camera_info->D[0];
-      parameters.k2 = camera_info->D[1];
-      parameters.p1 = camera_info->D[2];
-      parameters.p2 = camera_info->D[3];
-      parameters.k3 = camera_info->D[4];
+      parameters.k1 = 0;
+      parameters.k2 = 0;
+      parameters.p1 = 0;
+      parameters.p2 = 0;
+      parameters.k3 = 0;
+      // Check if distortion model type is set to prevent memory access violation
+      if(camera_info->distortion_model.compare("") != 0){
+          parameters.k1 = camera_info->D[0];
+          parameters.k2 = camera_info->D[1];
+          parameters.p1 = camera_info->D[2];
+          parameters.p2 = camera_info->D[3];
+          parameters.k3 = camera_info->D[4];
+      }
+
       return;
     }
   }
