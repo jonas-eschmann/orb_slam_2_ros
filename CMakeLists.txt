@@ -176,10 +176,6 @@ install(DIRECTORY ros/config/
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/ros/config
 )
 
-install(DIRECTORY orb_slam2/config/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/orb_slam2/config
-)
-
 install(DIRECTORY orb_slam2/Vocabulary/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/orb_slam2/Vocabulary
 )
